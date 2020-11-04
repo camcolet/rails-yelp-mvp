@@ -1,0 +1,16 @@
+<h1> <%= @restaurant.name  %> </h1>
+
+<p> <%= @restaurant.name %> is a <%= @restaurant.category  %> reastaurant and is located at <%= @restaurant.address %>. </p>
+<p> To make a reservation, call <%= @restaurant.phone_number %>. </p>
+
+<p><%= link_to "Back to restaurants", restaurants_path %></p>
+
+<h4>Reviews</h4>
+
+<%= link_to "+ Add a new review", new_restaurant_review_path(@restaurant) %>
+
+<ul class="list-group">
+  <% @restaurant.reviews.each do |review| %>
+    <li class="list-group-item"><%= review.content %> | <%= review.rating %>/5 </li>
+  <% end %>
+</ul>
